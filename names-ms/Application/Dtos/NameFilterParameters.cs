@@ -5,9 +5,18 @@ namespace names_ms.Application.Dtos
 {
     public class NameFilterParameters
     {
-        [StringLength(1, ErrorMessage = "Gender must be at most 1 character long.")]
+        /// <summary>
+        /// Género del nombre: F (femenino) o M (masculino).
+        /// </summary>
+        /// <example>M</example>
+        [MaxLength(1, ErrorMessage = "El género debe tener un solo carácter.")]
         public string? Gender { get; set; }
-        [StringLength(1, ErrorMessage = "NameStartsWith must be at most 1 character long.")]
+
+        /// <summary>
+        /// Inicia con el nombre.
+        /// </summary>
+        /// <example>A</example>
+        [MaxLength(1, ErrorMessage = "El prefijo del nombre debe tener un solo carácter.")]
         public string? NameStartsWith { get; set; }
 
         // Método que devuelve el valor del parámetro para cada filtro

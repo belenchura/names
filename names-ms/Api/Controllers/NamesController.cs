@@ -15,13 +15,20 @@ namespace names_ms.Api.Controllers
             _nameService = nameService;
         }
 
-        [HttpPost("filter")]
-        public IActionResult GetNames([FromBody] NameFilterParameters filterParameters)
+        /// <summary>
+        /// Obtiene una lista de nombres filtrados.
+        /// </summary>
+        /// <param name="filterParameters">Parámetros para filtrar los nombres.</param>
+        /// <returns>
+        /// Una lista de nombres que coinciden con los criterios de filtrado.
+        /// En caso de no encontrar coincidencias, se retornará una lista vacía.
+        /// </returns>
+        /// <response code="200">Devuelve una lista de nombres filtrados.</response>
+        /// <response code="400">Si los parámetros de filtrado son inválidos.</response>
+        [HttpGet]
+        public IActionResult GetNames([FromQuery] NameFilterParameters filterParameters)
         {
-            // Obtener los nombres filtrados a través del servicio
             var result = _nameService.GetNames(filterParameters);
-
-            // Retornar los nombres como JSON
             return Ok(result);
         }
     }
