@@ -21,7 +21,6 @@
       "Adrian",
       "Alejandro",
       "Alvaro",
-      "Daniel",
       ...
   ]
 
